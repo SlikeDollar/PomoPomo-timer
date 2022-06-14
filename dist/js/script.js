@@ -90,10 +90,76 @@
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdown */ "./src/js/modules/dropdown.js");
+/* harmony import */ var _modules_playpause__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/playpause */ "./src/js/modules/playpause.js");
 
 
+window.addEventListener("DOMContentLoaded", () => {
+  "use strict";
+
+  Object(_modules_playpause__WEBPACK_IMPORTED_MODULE_1__["default"])('.clock__progressbar-button', '.clock__progressbar-ring-circle');
+  Object(_modules_dropdown__WEBPACK_IMPORTED_MODULE_0__["default"])('.header__lang-dropdown-button', '.header__lang-dropdown-content');
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/dropdown.js":
+/*!************************************!*\
+  !*** ./src/js/modules/dropdown.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const dropdown = (btnSelector, dropdownContentSelector) => {
+  const dropdownButton = document.querySelector(btnSelector),
+        dropdownContent = document.querySelector(dropdownContentSelector);
+  dropdownButton.addEventListener('click', e => {
+    if (e.target) {
+      e.preventDefault();
+    }
+
+    if (dropdownContent.classList.contains('show-flex')) {
+      dropdownContent.classList.remove('show-flex');
+      dropdownContent.classList.add('hide');
+    } else {
+      dropdownContent.classList.add('show-flex');
+      dropdownContent.classList.remove('hide');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (dropdown);
+
+/***/ }),
+
+/***/ "./src/js/modules/playpause.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/playpause.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const playpause = (playpauseBtnSelector, progressbarSelector) => {
+  const playpauseBtn = document.querySelector(playpauseBtnSelector);
+  const progressbar = document.querySelector(progressbarSelector);
+  playpauseBtn.addEventListener('click', () => {
+    if (!progressbar.classList.contains('progressbar-active')) {
+      playpauseBtn.classList.add('playing');
+      progressbar.classList.add('progressbar-active'); // playpauseBtn.classList.add('hide');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (playpause);
 
 /***/ })
 

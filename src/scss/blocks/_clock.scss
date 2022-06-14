@@ -1,0 +1,63 @@
+.clock {
+    margin-top: 9rem;
+}
+
+.clock__tabheader {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    &-button {
+        padding: 1rem 2.2rem;
+    }
+}
+
+
+.clock__progressbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &-ring {
+        stroke: #f0f0f0;
+        &-circle {
+            transition: 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            fill: transparent;
+        }
+    }
+
+    &-button {
+        position: absolute;
+        left: 48%;
+        background: transparent;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        & button {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            transition: inherit;
+            cursor: pointer;
+            clip-path: polygon(0 0, 50% 25%, 50% 75%, 50% 75%, 50% 25%, 100% 50%, 100% 50%, 0 100%);
+        }
+    }
+}
+
+
+.clock__timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 400;
+}
+.playing button {
+    clip-path: polygon(0 0, 40% 0, 40% 100%, 60% 100%, 60% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+

@@ -5,20 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PomoPomo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="container">
+            <div class="container header__inner">
                 <a href="#" class="logo"><img src="#" alt="PomoPomo"></a>
                 <div class="header__right">
-                    <select name="lang" class="header__lang">
-                        <option value="ua"></option>
-                        <option value="en"></option>
+                    <div name="lang" class="header__lang-dropdown">
+                        <button class="header__lang-dropdown-button btn-red"><img src="./img/svg/header__lang--eng.svg"
+                                alt="eng"> Language</button>
+                        <div class="header__lang-dropdown-content hide">
+                            <a href="#  " id="eng" class="header__lang-item"> <img src="./img/svg/header__lang--eng.svg"
+                                    height="20px" width="20px" alt="english"> English</a>
+
+                            <a href="#" id="eng" class="header__lang-item"> <img src="./img/svg/header__lang--ua.svg"
+                                    height="20px" width="20px" alt="english"> Urkrainian</a>
+                        </div>
+                    </div>
                     </select>
-                    <button class="header__options" data-modal>СВГ иконка настроек</button>
+                    <button class="header__button btn-red" data-modal><img src="./img/svg/header__right--setting.svg"
+                            alt="settings">
+                        <div class="header__options">Setting</div>
+                    </button>
                 </div>
             </div>
         </header>
@@ -26,110 +40,128 @@
             <div class="container">
                 <div class="clock">
                     <div class="clock__tabheader">
-                        <button class="clock__tabheader-button btn">Pomodoro</button>
-                        <button class="clock__tabheader-button btn">Short break</button>
-                        <button class="clock__tabheader-button btn">Long Break</button>
+                        <button class="clock__tabheader-button btn-red">Pomodoro</button>
+                        <button class="clock__tabheader-button btn-red">Short break</button>
+                        <button class="clock__tabheader-button btn-red">Long Break</button>
                     </div>
-                    <svg class="clock__progressbar" height="120" width="120">
-                        <circle class="clock__progressbar-circle" stroke-width="8" fill="transparent" r="50" cx="60"
-                            cy="60" />
-                    </svg>
+                    <div class="clock__progressbar">
+                        <div class="clock__progressbar-button">
+                            <button id="button-start"></button>
+                        </div>
+                        <svg class="clock__progressbar-ring" height="400" width="400">
+                            <circle class="clock__progressbar-ring-circle" stroke-width="8" fill="white" r="180"
+                                cx="210" cy="210"></circle>
+                        </svg>
+                    </div>
                     <div class="clock__timer">
                         <span id="minutes">25</span>:<span id="seconds">00</span>
                     </div>
-                    <button class="clock-button btn">start</button>
                 </div>
             </div>
         </main>
 
         <div class="options__popup popup">
             <div class="options__popup-dialog popup__dialog">
-                <div class="options__popup-content popup__content">
-                    <div class="options__popup-header">
-                        <h2 class="options__popup-title title">Set up YOUR timer</h2>
-                        <button class="options__popup-close popup-close">
-                            <img src="" alt="close">
-                        </button>
-                    </div>
-                    <div class="options__popup-duration popup-customize">
-                        <h3 class="options__popup-duration-title">duration</h3>
-                        <div class="options__popup-duration-inner">
-                            <div class="options__popup-duration-wrapper options-choose popup-customize-bg">
-                                <label class="options__popup-duration-label options-label">Pomodoro</label>
-                                <input type="number" min="1" step="1" value="25"
-                                    class="options__popup-duration-input input-num">
-                            </div>
+                <div class="options__popup-inner popup__inner">
+                    <div class="options__popup-сontent popup__content">
+                        <div class="options__popup-header">
+                            <h2 class="options__popup-title title">Set up <span>YOUR</span> timer</h2>
+                            <button class="options__popup-close popup-close ">
+                                <img src="./img/svg/close-svgrepo-com.svg" alt="close" height="40" width="40">
+                            </button>
+                        </div>
+                        <div class="options__popup-duration popup-customize">
+                            <h3 class="options__popup-duration-title options-subtitle">Duration(minutes)</h3>
+                            <div class="options__popup-duration-inner">
 
-                            <div class="options__popup-duration-wrapper popup-customize-bg">
-                                <label class="options__popup-duration-label options-label">Short break</label>
-                                <input type="number" min="1" step="1" value="5"
-                                    class="options__popup-duration-input input-num">
-                            </div>
+                                <div class="options__popup-duration-wrapper options-choose popup-customize-bg">
+                                    <input type="number" min="1" step="1" value="25"
+                                        class="options__popup-duration-input input-num">
+                                    <label class="options__popup-duration-label options-label">Pomodoro</label>
+                                </div>
 
-                            <div class="options__popup-duration-wrapper popup-customize-bg">
-                                <label class="options__popup-duration-label options-label">Long break</label>
-                                <input type="number" min="1" step="1" value="15"
-                                    class="options__popup-duration-input input-num">
+                                <div class="options__popup-duration-wrapper popup-customize-bg options-choose">
+                                    <input type="number" min="1" step="1" value="5"
+                                        class="options__popup-duration-input input-num">
+                                    <label class="options__popup-duration-label options-label">Short break</label>
+                                </div>
+
+                                <div class="options__popup-duration-wrapper popup-customize-bg options-choose">
+                                    <input type="number" min="1" step="1" value="15"
+                                        class="options__popup-duration-input input-num">
+                                    <label class="options__popup-duration-label options-label">Long break</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="options__popup-mode popup-customize popup-customize-bg">
-                        <h3 class="options__popup-mode-title">Color Themes</h3>
-                        <div class="options__popup-mode-inner">
-                            <button class="options__popup-mode-item" data-color="#d95550"></button>
-                            <button class="options__popup-mode-item" data-color="#8f94fb"></button>
-                            <button class="options__popup-mode-item" data-color="#c8c85e"></button>
-                            <button class="options__popup-mode-item" data-color="#0b525b"></button>
-                            <button class="options__popup-mode-item" data-color="#d66853"></button>
-                            <button class="options__popup-mode-item" data-color="#fdc921"></button>
-                            <button class="options__popup-mode-item" data-color="#ee9ca7"></button>
-                            <button class="options__popup-mode-item" data-color="#15202b"></button>
-                            <button class="options__popup-mode-item" data-color="#9ab5e1"></button>
-                            <button class="options__popup-mode-item" data-color="#cb997e"></button>
-                        </div>
-                    </div>
-
-                    <div class="options__popup-other popup-customize">
-                        <h3 class="options__popup-other-title">Other settings</h3>
-                        <div class="options__popup-other-item">
-                            <div class="options__popup-other-wrapper options-choose popup-customize-bg">
-                                <label class="options__popup-duration-label options-label">Pomodoro until the long
-                                    break</label>
-                                <input type="number" min="2" step="1" value="4"
-                                    class="options__popup-other-input input-num">
-                            </div>
-
-                            <div class="options__popup-other-wrapper options-choose popup-customize-bg">
-                                <label class="options__popup-duration-label options-label">Daily goal</label>
-                                <input type="number" min="1" step="1" value="4"
-                                    class="options__popup-other-input input-num">
+                        <div class="options__popup-mode popup-customize ">
+                            <h3 class="options__popup-mode-title options-subtitle">Color Themes</h3>
+                            <div class="options__popup-mode-inner popup-customize-bg">
+                                <button class="options__popup-mode-item" style="background-color: #d95550"></button>
+                                <button class="options__popup-mode-item" style="background-color: #8f94fb"></button>
+                                <button class="options__popup-mode-item" style="background-color: #c8c85e"></button>
+                                <button class="options__popup-mode-item" style="background-color: #0b525b"></button>
+                                <button class="options__popup-mode-item" style="background-color: #d66853"></button>
+                                <button class="options__popup-mode-item" style="background-color: #fdc921"></button>
+                                <button class="options__popup-mode-item" style="background-color: #ee9ca7"></button>
+                                <button class="options__popup-mode-item" style="background-color: #15202b"></button>
+                                <button class="options__popup-mode-item" style="background-color: #9ab5e1"></button>
+                                <button class="options__popup-mode-item" style="background-color: #cb997e"></button>
                             </div>
                         </div>
 
-                        <div class="options__popup-other-item">
-                            <label>
-                                <input class="options-checkbox options-checkbox-true checkbox" type="checkbox" name="checkbox-test" checked>
-                                <span class="options-checkbox-custom options-checkbox-custom-true checkbox-custom"></span>
-                            </label>
+                        <div class="options__popup-other">
+                            <h3 class="options__popup-other-title options-subtitle">Other settings</h3>
+                            <div class="options__popup-other-item popup-customize">
+                                <div class="options__popup-other-item-inner">
+                                    <div class="options__popup-other-wrapper options-choose popup-customize-bg">
+                                        <input type="number" min="2" step="1" value="4"
+                                            class="options__popup-other-input input-num">
+                                        <label class="options__popup-other-label options-label">Pomodoro until the
+                                            long
+                                            break</label>
+                                    </div>
 
-                            <label>
-                                <input class="options-checkbox options-checkbox-false checkbox" type="checkbox" name="checkbox-test">
-                                <span class="options-checkbox-custom options-checkbox-custom-false checkbox-custom"></span>
-                                <span class="label">auto start Breaks?</span>
-                            </label>
-                        </div>
+                                    <div class="options__popup-other-wrapper options-choose popup-customize-bg">
+                                        <input type="number" min="1" step="1" value="4"
+                                            class="options__popup-other-input input-num">
+                                        <label class="options__popup-other-label options-label">Daily goal</label>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="options__popup-other-item">
-                            <label>
-                                <input class="options-checkbox options-checkbox-true checkbox" type="checkbox" name="checkbox-test" checked>
-                                <span class="options-checkbox-custom options-checkbox-custom-true checkbox-custom"></span>
-                            </label>
+                            <div class="options__popup-other-item">
+                                <label>
+                                    <input class="options-checkbox options-checkbox-true checkbox" type="checkbox"
+                                        name="checkbox-test" checked>
+                                    <span
+                                        class="options-checkbox-custom options-checkbox-custom-true checkbox-custom"></span>
+                                </label>
 
-                            <label>
-                                <input class="options-checkbox options-checkbox-false checkbox" type="checkbox" name="checkbox-test">
-                                <span class="options-checkbox-custom options-checkbox-custom-false checkbox-custom"></span>
-                                <span class="label">auto start Pomodoro?</span>
-                            </label>
+                                <label>
+                                    <input class="options-checkbox options-checkbox-false checkbox" type="checkbox"
+                                        name="checkbox-test">
+                                    <span
+                                        class="options-checkbox-custom options-checkbox-custom-false checkbox-custom"></span>
+                                    <span class="label">auto start Breaks?</span>
+                                </label>
+                            </div>
+
+                            <div class="options__popup-other-item">
+                                <label>
+                                    <input class="options-checkbox options-checkbox-true checkbox" type="checkbox"
+                                        name="checkbox-test" checked>
+                                    <span
+                                        class="options-checkbox-custom options-checkbox-custom-true checkbox-custom"></span>
+                                </label>
+
+                                <label>
+                                    <input class="options-checkbox options-checkbox-false checkbox" type="checkbox"
+                                        name="checkbox-test">
+                                    <span
+                                        class="options-checkbox-custom options-checkbox-custom-false checkbox-custom"></span>
+                                    <span class="label">auto start Pomodoro?</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
